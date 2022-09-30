@@ -44,7 +44,7 @@ const registerService = async (req, res) => {
       refreshToken: tokens.refreshToken,
     });
 
-    res.json({
+    res.status(200).json({
       success: true,
       message: "Create user success!",
       data: {
@@ -99,7 +99,7 @@ const loginService = async (req, res) => {
     // Update refreshToken
     await updateRefreshToken(user, tokens.refreshToken);
 
-    res.json({
+    res.status(200).json({
       success: true,
       message: "Logged is Succesfully!",
       data: {
@@ -143,7 +143,7 @@ const checkUserService = async (req, res) => {
         .status(400)
         .json({ success: false, message: "User not found!", data: {} });
     }
-    res.json({
+    res.status(200).json({
       success: true,
       message: "User already!",
       data: {

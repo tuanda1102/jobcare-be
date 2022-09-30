@@ -1,15 +1,13 @@
 const { Sequelize } = require("sequelize");
 
-const { HOST, USER, PASSWORD, DB, dialect } = require("../config/db.config");
-const { createTableProfiles } = require("./profile.model");
-const { createTableUsers } = require("./users.model");
+const { HOST, USER, PASSWORD, DB, DIALECT } = require("../config/db.config");
+const createTableUsers = require("./users.model");
 
 const sequelize = new Sequelize(DB, USER, PASSWORD, {
   host: HOST,
-  dialect: dialect,
+  dialect: DIALECT,
 });
 
 const Users = createTableUsers(sequelize);
-const Profiles = createTableProfiles(sequelize);
 
-module.exports = { sequelize, Users, Profiles };
+module.exports = { sequelize, Users };
