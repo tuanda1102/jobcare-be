@@ -8,7 +8,7 @@ const {
   createUser,
   updateRefreshToken,
   deleteRefreshToken,
-} = require("../Repository/auth.repository");
+} = require("../repository/auth.repository");
 
 const registerService = async (req, res) => {
   const { email, password, fullname, role } = req.body;

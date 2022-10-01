@@ -12,9 +12,6 @@ const createTableJobs = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    descriptions: {
-      type: DataTypes.TEXT,
-    },
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -34,11 +31,34 @@ const createTableJobs = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    welfare: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    gender: {
+      type: DataTypes.STRING,
+    },
+    amount: {
+      type: DataTypes.INTEGER,
+    },
+    workFrom: {
+      type: DataTypes.STRING,
+    },
+    endDate: {
+      type: DataTypes.STRING,
+    },
     careerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
   });
+
+  Jobs.associate = (models) => {
+    Jobs.belongsTo(models.Users, {
+      foreignKey: "careerId",
+      as: "userjob",
+    });
+  };
 
   return Jobs;
 };

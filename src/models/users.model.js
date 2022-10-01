@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { ROLE } = require("../utils/constants.utils");
+const { ROLE } = require("../../src/utils/constants.utils");
 
 const createTableUsers = (sequelize) => {
   const Users = sequelize.define("Users", {
@@ -45,21 +45,13 @@ const createTableUsers = (sequelize) => {
     avatar: {
       type: DataTypes.STRING,
     },
-    description: {
-      type: DataTypes.TEXT,
-    },
     birth: {
-      type: DataTypes.DATE,
-    },
-    education: {
-      type: DataTypes.STRING(250),
+      type: DataTypes.STRING,
     },
   });
 
   Users.associate = (models) => {
-    // Users.hasOne(models.Profiles, {
-    //   foreignKey: "userId",
-    // });
+    Users.hasMany(models.Jobs, { as: "userjob" });
   };
 
   return Users;

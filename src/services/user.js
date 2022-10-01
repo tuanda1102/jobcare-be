@@ -1,5 +1,5 @@
-const { getUser } = require("../Repository/auth.repository");
-const { updateProfile } = require("../Repository/user.repository");
+const { getUser } = require("../repository/auth.repository");
+const { updateProfile } = require("../repository/user.repository");
 
 const updateUserProfileService = async (req, res) => {
   const { id, email } = req;
