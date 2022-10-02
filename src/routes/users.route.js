@@ -1,10 +1,11 @@
 const express = require("express");
 const userRoutes = express.Router();
 
-const { verifyToken } = require("../middleware/auth.middleware");
+const { verifyToken, checkUser } = require("../middleware/auth.middleware");
 const {
   updateUserProfile,
   assessRecuiter,
+  getDetailRecruiter,
 } = require("../controllers/user.controller");
 
 // @route POST api/user/update
@@ -15,6 +16,11 @@ userRoutes.post("/update", verifyToken, updateUserProfile);
 // @route POST api/user/assess
 // @desc Assess  a recruiter
 // @access private
-userRoutes.post("/assess", verifyToken, assessRecuiter);
+userRoutes.post("/assess", verifyToken, checkUser, assessRecuiter);
+
+// @route GET api/user/id
+// @desc Get detail of recruiter
+// @access public
+userRoutes.get("/:id", getDetailRecruiter);
 
 module.exports = userRoutes;

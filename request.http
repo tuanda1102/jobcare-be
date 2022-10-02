@@ -2,10 +2,9 @@ POST  http://localhost:5000/api/auth/register
 Content-Type:  application/json
 
 {
-    "email": "recruiter1@gmail.com",
+    "email": "phamanhtuan@gmail.com",
     "password": "123123",
-    "fullname": "Tuan Da",
-    "role": "recruiter"
+    "fullname": "Tuan Da"
 }
 
 ###
@@ -14,7 +13,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type:  application/json
 
 {
-    "email": "recruiter1@gmail.com",
+    "email": "phamanhtuan@gmail.com",
     "password": "123123"
 }
 
@@ -42,11 +41,11 @@ Content-Type:  application/json
 
 ### JOB
 POST http://localhost:5000/api/jobs/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImVtYWlsIjoicmVjcnVpdGVyMUBnbWFpbC5jb20iLCJyb2xlIjoicmVjcnVpdGVyIiwiaWF0IjoxNjY0Njk5NjM3LCJleHAiOjE2NjQ3MDY4Mzd9.As4JY-DAcZ4amJ9jXNopdbde3rlB9sTyR2jK6jqVgAc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoicmVjcnVpdGVyMUBnbWFpbC5jb20iLCJyb2xlIjoicmVjcnVpdGVyIiwiaWF0IjoxNjY0NzMyNjI4LCJleHAiOjE2NjQ3Mzk4Mjh9.NI5gpTjpcF9MNCA_Vf_VkplMTn-gYQQvmsPHeneCnz8
 Content-Type:  application/json
 
 {
-    "title": "Front-end Developer",
+    "title": "Fron-end",
     "content": "Tao tuyển mày về làm mình làm mẩy oke a ba la trap khè khè khè",
     "salary": "Từ 20 triệu",
     "level": "Senior",
@@ -54,10 +53,58 @@ Content-Type:  application/json
     "location": "Đà nẵng",
     "welfare": "Tăng lương 2 lần 1 năm",
     "gender": "",
-    "amount": ,
+    "amount": "5 nguoi",
     "workFrom": "fulltime",
     "endDate": "20/10/2022",
     "isDeleted": false,
-    "recruiterId": "5",
-    "jobCategoryId": "kinh te"
+    "recruiterId": 2,
+    "jobCategoryId": 2
 } 
+
+###
+POST http://localhost:5000/api/jobs/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImVtYWlsIjoicGhhbWFuaHR1YW5AZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NjQ3MDcwNjcsImV4cCI6MTY2NDcxNDI2N30.EvaURQN_8Njok6PoPlSR1jpKuhw0wBJnD6r6LIIXVD0
+Content-Type:  application/json
+
+{
+    "title": "suia nha",
+    "content": "Đã sửa nek",
+    "salary": "Từ Từ rồi tính",
+    "level": "okeoke",
+    "skills": "reactjs",
+    "location": "Hà Tĩnh",
+    "welfare": "Tăng lương 2 lần 1 năm",
+    "gender": "",
+    "amount": "bao nhiêu cũng được",
+    "workFrom": "fulltime",
+    "endDate": "20/10/2022",
+    "isDeleted": false,
+    "jobCategoryId": 2
+} 
+
+###
+DELETE http://localhost:5000/api/jobs/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoicmVjcnVpdGVyMUBnbWFpbC5jb20iLCJyb2xlIjoicmVjcnVpdGVyIiwiaWF0IjoxNjY0NzA3NTkyLCJleHAiOjE2NjQ3MTQ3OTJ9.iiZ0lm391Fxhoqc4hFjljum4mZRQMoEc-ufGOE8j0Ns
+Content-Type:  application/json
+
+{
+
+} 
+
+### 
+GET http://localhost:5000/api/jobs
+
+###
+POST http://localhost:5000/api/user/assess
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImVtYWlsIjoicGhhbWFuaHR1YW5AZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NjQ3MzI3NTEsImV4cCI6MTY2NDczOTk1MX0.MG_600SAsqa9WnLzMzd5MzRtMjK0Ex2Z1O9c1ee3x1s
+Content-Type:  application/json
+
+{
+    "message": "Thuc tap sinh khong luong",
+    "userId": 1,
+    "recruiterId": 1
+} 
+
+###
+GET http://localhost:5000/api/user/1
+

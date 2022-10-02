@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize");
+const { Users } = require(".");
 
 const createTableJobs = (sequelize) => {
   const Jobs = sequelize.define("Jobs", {
@@ -61,18 +62,20 @@ const createTableJobs = (sequelize) => {
   });
 
   Jobs.associate = (models) => {
-    Jobs.hasMany(models.Application, {
-      as: "job_application",
-    });
     Jobs.belongsTo(models.Users, {
       foreignKey: "recruiterId",
       as: "recuiter_jobs",
+    });
+    Jobs.hasMany(models.Application, {
+      as: "job_application",
     });
     Jobs.belongsTo(models.JobCategories, {
       foreignKey: "jobCategoryId",
       as: "job_categories",
     });
   };
+
+  // sequelize.models.Jobs;
 
   return Jobs;
 };

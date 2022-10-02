@@ -26,6 +26,16 @@ const Assess = createTableAssess(sequelize);
 const JobCategories = createTableJobCategories(sequelize);
 const Application = createTableApplication(sequelize);
 
+Users.hasMany(Jobs, {
+  foreignKey: "recruiterId",
+  as: "recuiter_jobs",
+});
+
+Jobs.belongsTo(Users, {
+  foreignKey: "recruiterId",
+  as: "recuiter_jobs",
+});
+
 module.exports = {
   sequelize,
   Users,

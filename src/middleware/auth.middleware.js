@@ -43,4 +43,16 @@ const checkRecruiter = async (req, res, next) => {
   next();
 };
 
-module.exports = { verifyToken, checkRecruiter };
+const checkUser = async (req, res, next) => {
+  if (req.role !== ROLE.USER) {
+    return res.status(401).json({
+      success: false,
+      message: "Invalid authorization",
+      data: {},
+    });
+  }
+
+  next();
+};
+
+module.exports = { verifyToken, checkRecruiter, checkUser };
