@@ -39,7 +39,7 @@ const createTableJobs = (sequelize) => {
       type: DataTypes.STRING,
     },
     amount: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     workFrom: {
       type: DataTypes.STRING,
@@ -47,16 +47,30 @@ const createTableJobs = (sequelize) => {
     endDate: {
       type: DataTypes.STRING,
     },
-    careerId: {
+    isDeleted: {
+      type: DataTypes.BOOLEAN,
+    },
+    recruiterId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    jobCategoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
   });
 
   Jobs.associate = (models) => {
+    Jobs.hasMany(models.Application, {
+      as: "job_application",
+    });
     Jobs.belongsTo(models.Users, {
-      foreignKey: "careerId",
-      as: "userjob",
+      foreignKey: "recruiterId",
+      as: "recuiter_jobs",
+    });
+    Jobs.belongsTo(models.JobCategories, {
+      foreignKey: "jobCategoryId",
+      as: "job_categories",
     });
   };
 

@@ -6,6 +6,7 @@ const {
   login,
   logout,
   checkUser,
+  registerRecruiter,
 } = require("../controllers/auth.controller");
 const { verifyToken } = require("../middleware/auth.middleware");
 
@@ -13,6 +14,11 @@ const { verifyToken } = require("../middleware/auth.middleware");
 // @desc Register a user
 // @access public
 authRoutes.post("/register", register);
+
+// @route POST api/auth/register/recruiter
+// @desc Register a recruiter
+// @access private
+authRoutes.post("/register/recruiter", verifyToken, registerRecruiter);
 
 // @route POST api/auth/login
 // @desc Login a user

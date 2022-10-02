@@ -32,7 +32,7 @@ const registerService = async (req, res) => {
 
     // ALL good
     // Return token
-    const tokens = generateToken(user);
+    const tokens = generateToken({ email });
 
     const hashedPassword = await argon2.hash(password);
 

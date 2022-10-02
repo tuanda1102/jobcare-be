@@ -51,7 +51,11 @@ const createTableUsers = (sequelize) => {
   });
 
   Users.associate = (models) => {
-    Users.hasMany(models.Jobs, { as: "userjob" });
+    Users.hasMany(models.Jobs, { as: "recuiter_jobs" });
+    Users.hasMany(models.Assess, { as: "user_assess" });
+    Users.hasMany(models.Assess, { as: "recruiter_assess" });
+    Users.hasMany(models.CurriculumVitae, { as: "user_cv" });
+    Users.hasMany(models.Application, { as: "user_application" });
   };
 
   return Users;

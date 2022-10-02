@@ -9,6 +9,10 @@ const register = async (req, res) => {
   return await registerService(req, res);
 };
 
+const registerRecruiter = async (req, res) => {
+  return await registerService(req, res);
+};
+
 const login = async (req, res) => {
   return await loginService(req, res);
 };
@@ -21,4 +25,4 @@ const checkUser = async (req, res) => {
   return await checkUserService(req, res);
 };
 
-module.exports = { register, login, logout, checkUser };
+module.exports = { register, login, logout, checkUser, registerRecruiter };

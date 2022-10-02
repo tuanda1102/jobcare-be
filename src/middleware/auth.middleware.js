@@ -1,5 +1,6 @@
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
+const { ROLE } = require("../utils/constants.utils");
 
 const verifyToken = async (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -17,6 +18,7 @@ const verifyToken = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     req.id = decoded.userId;
     req.email = decoded.email;
+    req.role = decoded.role;
 
     next();
   } catch (error) {
@@ -29,4 +31,16 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-module.exports = { verifyToken };
+const checkRecruiter = async (req, res, next) => {
+  if (req.role !== ROLE.RECRUITER) {
+    return res.status(401).json({
+      success: false,
+      message: "Invalid authorization",
+      data: {},
+    });
+  }
+
+  next();
+};
+
+module.exports = { verifyToken, checkRecruiter };

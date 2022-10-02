@@ -2,10 +2,10 @@ POST  http://localhost:5000/api/auth/register
 Content-Type:  application/json
 
 {
-    "email": "tuanda1102@gmail.com",
+    "email": "recruiter1@gmail.com",
     "password": "123123",
-    "fullname": "Tuan Da"
-
+    "fullname": "Tuan Da",
+    "role": "recruiter"
 }
 
 ###
@@ -14,7 +14,7 @@ POST http://localhost:5000/api/auth/login
 Content-Type:  application/json
 
 {
-    "email": "tuanda1102@gmail.com",
+    "email": "recruiter1@gmail.com",
     "password": "123123"
 }
 
@@ -39,4 +39,25 @@ Content-Type:  application/json
     "description": "Nguoi Ha Tinh"
 } 
 
-###
+
+### JOB
+POST http://localhost:5000/api/jobs/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImVtYWlsIjoicmVjcnVpdGVyMUBnbWFpbC5jb20iLCJyb2xlIjoicmVjcnVpdGVyIiwiaWF0IjoxNjY0Njk5NjM3LCJleHAiOjE2NjQ3MDY4Mzd9.As4JY-DAcZ4amJ9jXNopdbde3rlB9sTyR2jK6jqVgAc
+Content-Type:  application/json
+
+{
+    "title": "Front-end Developer",
+    "content": "Tao tuyển mày về làm mình làm mẩy oke a ba la trap khè khè khè",
+    "salary": "Từ 20 triệu",
+    "level": "Senior",
+    "skills": "reactjs",
+    "location": "Đà nẵng",
+    "welfare": "Tăng lương 2 lần 1 năm",
+    "gender": "",
+    "amount": ,
+    "workFrom": "fulltime",
+    "endDate": "20/10/2022",
+    "isDeleted": false,
+    "recruiterId": "5",
+    "jobCategoryId": "kinh te"
+} 

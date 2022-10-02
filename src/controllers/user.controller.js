@@ -1,7 +1,14 @@
-const { updateUserProfileService } = require("../services/user");
+const {
+  updateUserProfileService,
+  assessRecuiterService,
+} = require("../services/user");
 
 const updateUserProfile = async (req, res) => {
   return await updateUserProfileService(req, res);
 };
 
-module.exports = { updateUserProfile };
+const assessRecuiter = async (req, res) => {
+  return await assessRecuiterService(req, res);
+};
+
+module.exports = { updateUserProfile, assessRecuiter };

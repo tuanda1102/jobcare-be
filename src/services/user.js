@@ -39,4 +39,6 @@ const updateUserProfileService = async (req, res) => {
   }
 };
 
-module.exports = { updateUserProfileService };
+const assessRecuiterService = async (req, res) => {};
+
+module.exports = { updateUserProfileService, assessRecuiterService };

@@ -24,4 +24,4 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-sequelize.sync({ alter: true, force: true });
+sequelize.sync({ alter: true, force: false });
